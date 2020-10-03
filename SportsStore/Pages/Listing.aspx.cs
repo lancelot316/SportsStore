@@ -3,9 +3,6 @@ using SportsStore.Models.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace SportsStore.Pages
 {
@@ -22,7 +19,7 @@ namespace SportsStore.Pages
 
         protected IEnumerable<Product> GetProducts()
         {
-            return repo.Products
+            return FilterProducts()
                 .OrderBy(p => p.ProductID)
                 .Skip((CurrentPage - 1) * pageSize)
                 .Take(pageSize);
@@ -33,7 +30,7 @@ namespace SportsStore.Pages
             get
             {
                 int page;
-                page = int.TryParse(Request.QueryString["page"], out page) ? page : 1;
+                page = GetPageFromRequest();
                 return page > MaxPage ? MaxPage : page;
             }
         }
@@ -42,8 +39,25 @@ namespace SportsStore.Pages
         {
             get
             {
-                return (int)Math.Ceiling((decimal)repo.Products.Count() / pageSize);
+                return (int)Math.Ceiling((decimal)FilterProducts().Count() / pageSize);
             }
+        }
+
+        private IEnumerable<Product> FilterProducts()
+        {
+            IEnumerable<Product> products = repo.Products;
+            string currentCategory = (string)RouteData.Values["category"] ??
+                Request.QueryString["category"];
+            return currentCategory == null ? products
+                : products.Where(p => p.Category == currentCategory);
+        }
+
+        private int GetPageFromRequest()
+        {
+            int page;
+            string reqValue = (string)RouteData.Values["page"] ?? Request.QueryString["page"];
+
+            return reqValue != null && int.TryParse(reqValue, out page) ? page : 1;
         }
     }
 }
