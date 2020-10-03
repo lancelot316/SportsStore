@@ -44,7 +44,22 @@ namespace SportsStore.Pages
                 .Take(pageSize);
         }
 
-        protected int CurrentPage
+        public IEnumerable<string> GetPagerLinkHtml()
+        {
+            List<string> links = new List<string>(MaxPage);
+
+            for (int i = 1; i <= MaxPage; i++)
+            {
+                string path = RouteTable.Routes.GetVirtualPath(null, null, new RouteValueDictionary() { { "page", i } }).VirtualPath;
+
+                links.Add(string.Format("<a href='{0}' {1}>{2}</a>",
+                    path, i == CurrentPage ? "class='selected'" : "", i));
+            }
+
+            return links;
+        }
+
+        private int CurrentPage
         {
             get
             {
@@ -54,7 +69,7 @@ namespace SportsStore.Pages
             }
         }
 
-        protected int MaxPage
+        private int MaxPage
         {
             get
             {

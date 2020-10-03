@@ -21,12 +21,10 @@
         </asp:Repeater>
     </div>
     <div class="pager">
-        <% for (int i = 1; i <= MaxPage; i++)
-            {
-                string path = RouteTable.Routes.GetVirtualPath(null, null, new RouteValueDictionary() { { "page", i } }).VirtualPath;
-                Response.Write(
-                  string.Format("<a href='{0}' {1}>{2}</a>",
-                      path, i == CurrentPage ? "class='selected'" : "", i));
-            }%>
+        <asp:Repeater ItemType="System.String" SelectMethod="GetPagerLinkHtml" runat="server">
+            <ItemTemplate>
+                <%# Item %>
+            </ItemTemplate>
+        </asp:Repeater>
     </div>
 </asp:Content>
