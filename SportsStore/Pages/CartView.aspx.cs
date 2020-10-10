@@ -4,6 +4,7 @@ using SportsStore.Pages.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Routing;
 
 namespace SportsStore.Pages
 {
@@ -45,6 +46,15 @@ namespace SportsStore.Pages
             get
             {
                 return SessionHelper.Get<string>(Session, SessionKey.RETURN_URL);
+            }
+        }
+
+        public string CheckoutUrl
+        {
+            get
+            {
+                return RouteTable.Routes.GetVirtualPath(null, "checkout",
+                    null).VirtualPath;
             }
         }
     }
