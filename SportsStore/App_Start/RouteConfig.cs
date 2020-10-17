@@ -13,6 +13,9 @@ namespace SportsStore.App_Start
 
             routes.MapPageRoute("cart", "cart", "~/Pages/CartView.aspx");
             routes.MapPageRoute("checkout", "checkout", "~/Pages/Checkout.aspx");
+
+            routes.MapPageRoute("admin_orders", "admin/orders", "~/Pages/Admin/Orders.aspx"); 
+            routes.MapPageRoute("admin_products", "admin/products", "~/Pages/Admin/Products.aspx");
         }
     }
 }
