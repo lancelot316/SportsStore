@@ -10,18 +10,18 @@ namespace SportsStore.Controllers
 {
     public class ProductController : Controller
     {
-        private Repository repo;
+        private Repository _repo;
 
-        public ProductController()
+        public ProductController(Repository repo)
         {
-            repo = new Repository();
+            _repo = repo;
         }
 
 
         // GET: Product
         public ActionResult List()
         {
-            IEnumerable<Product> products = repo.Products;
+            IEnumerable<Product> products = _repo.Products;
 
             return View(products);
         }
