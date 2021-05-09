@@ -163,6 +163,7 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Repository\EFDbContext.cs" />
+    <Compile Include="Models\Repository\IProductRepository.cs" />
     <Compile Include="Models\Repository\Repository.cs" />
     <Compile Include="Controls\CartSummary.ascx.cs">
       <DependentUpon>CartSummary.ascx</DependentUpon>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Ninject;
-
+using SportsStore.Models.Repository;
 
 namespace SportsStore.Infrastructure
 {
@@ -30,7 +30,7 @@ namespace SportsStore.Infrastructure
 
         private void AddBindings()
         {
-            
+            kernel.Bind<IProductRepository>().To<Repository>();
         }
     }
 }

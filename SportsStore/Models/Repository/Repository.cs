@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SportsStore.Models.Repository
 {
-    public class Repository
+    public class Repository : IProductRepository
     {
         private EFDbContext context = new EFDbContext();
 
