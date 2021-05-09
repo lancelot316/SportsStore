@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SportsStore</title>
+    <link rel="stylesheet" href="/Content/Styles.css" />
+    @System.Web.Optimization.Scripts.Render("~/bundles/validation")
+</head>
+<body>
+    <div id="header">
+        <div class="title">SPORTS STORE</div>
+    </div>
+    <div id="categories">
+        categories go here
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
