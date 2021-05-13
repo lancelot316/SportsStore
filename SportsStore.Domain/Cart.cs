@@ -1,8 +1,7 @@
-﻿using SportsStore.Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SportsStore.WebUI.Models
+namespace SportsStore.Domain
 {
     public class Cart
     {

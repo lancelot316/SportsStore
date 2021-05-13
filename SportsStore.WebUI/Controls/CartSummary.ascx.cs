@@ -1,4 +1,5 @@
-﻿using SportsStore.WebUI.Models;
+﻿using SportsStore.Domain;
+using SportsStore.WebUI.Models;
 using SportsStore.WebUI.Pages.Helpers;
 using System;
 using System.Linq;

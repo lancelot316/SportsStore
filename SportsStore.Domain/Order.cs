@@ -1,8 +1,7 @@
-﻿using SportsStore.Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace SportsStore.WebUI.Models
+namespace SportsStore.Domain
 {
     public class Order
     {
@@ -21,6 +20,10 @@ namespace SportsStore.WebUI.Models
 
         [Required(ErrorMessage = "Please enter a state")]
         public string State { get; set; }
+        public string Zip { get; set; }
+
+        [Required(ErrorMessage = "Please enter a country name")]
+        public string Country { get; set; }
         public bool GiftWrap { get; set; }
         public bool Dispatched { get; set; }
         public virtual List<OrderLine> OrderLines { get; set; }

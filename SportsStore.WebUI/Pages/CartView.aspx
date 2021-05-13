@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                <asp:Repeater ItemType="SportsStore.WebUI.Models.CartLine"
+                <asp:Repeater ItemType="SportsStore.Domain.CartLine"
                     SelectMethod="GetCartLines" runat="server" EnableViewState="false">
                     <ItemTemplate>
                         <tr>
