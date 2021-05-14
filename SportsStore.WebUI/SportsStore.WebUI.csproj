@@ -122,17 +122,8 @@
   <ItemGroup>
     <Content Include="Content\AdminStyles.css" />
     <Content Include="Content\styles.css" />
-    <Content Include="Controls\CategoryList.ascx" />
     <Content Include="Global.asax" />
-    <Content Include="Controls\CartSummary.ascx" />
-    <Content Include="Pages\Admin\Orders.aspx" />
-    <Content Include="Pages\Admin\Products.aspx" />
-    <Content Include="Pages\CartView.aspx" />
-    <Content Include="Pages\Checkout.aspx" />
-    <Content Include="Pages\Listing.aspx" />
-    <Content Include="Pages\Admin\Admin.Master" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
-    <Content Include="Pages\Login.aspx" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -151,14 +142,6 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controls\CategoryList.ascx.cs">
-      <DependentUpon>CategoryList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controls\CategoryList.ascx.designer.cs">
-      <DependentUpon>CategoryList.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\VInput.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -172,76 +155,11 @@
     <Compile Include="Models\ProductsListViewModel.cs" />
     <Compile Include="Models\Repository\EFDbContext.cs" />
     <Compile Include="Models\Repository\Repository.cs" />
-    <Compile Include="Controls\CartSummary.ascx.cs">
-      <DependentUpon>CartSummary.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controls\CartSummary.ascx.designer.cs">
-      <DependentUpon>CartSummary.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Admin\Admin.Master.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Admin\Admin.Master.designer.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Admin\Orders.aspx.cs">
-      <DependentUpon>Orders.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Admin\Orders.aspx.designer.cs">
-      <DependentUpon>Orders.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Admin\Products.aspx.cs">
-      <DependentUpon>Products.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Admin\Products.aspx.designer.cs">
-      <DependentUpon>Products.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\CartView.aspx.cs">
-      <DependentUpon>CartView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\CartView.aspx.designer.cs">
-      <DependentUpon>CartView.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Checkout.aspx.cs">
-      <DependentUpon>Checkout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Checkout.aspx.designer.cs">
-      <DependentUpon>Checkout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Helpers\SessionHelper.cs" />
-    <Compile Include="Pages\Listing.aspx.cs">
-      <DependentUpon>Listing.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Listing.aspx.designer.cs">
-      <DependentUpon>Listing.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Store.Master.cs">
-      <DependentUpon>Store.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Store.Master.designer.cs">
-      <DependentUpon>Store.Master</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Data\EntityState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Pages\Store.Master" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
