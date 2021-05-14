@@ -29,6 +29,8 @@ namespace SportsStore.WebUI.Models.Repository
                     dbProduct.Description = product.Description;
                     dbProduct.Price = product.Price;
                     dbProduct.Category = product.Category;
+                    dbProduct.ImageData = product.ImageData;
+                    dbProduct.ImageMimeType = product.ImageMimeType;
                 }
             }
             context.SaveChanges();
@@ -48,6 +50,18 @@ namespace SportsStore.WebUI.Models.Repository
             context.Products.Remove(product);
             context.SaveChanges();
         }
+
+        public Product DeleteProduct(int productID)
+        {
+            Product dbEntry = context.Products.Find(productID);
+            if (dbEntry != null)
+            {
+                context.Products.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
+
         public IEnumerable<Order> Orders => context.Orders
               .Include(o => o.OrderLines
                   .Select(ol => ol.Product));

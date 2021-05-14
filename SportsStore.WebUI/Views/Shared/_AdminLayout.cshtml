@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SportsStore</title>
+    <link rel="stylesheet" href="/Content/Styles.css" />
+    @System.Web.Optimization.Scripts.Render("~/bundles/validation")
+</head>
+<body>
+    <div>
+        @if (TempData["message"] != null)
+        {
+            <div>@TempData["message"]</div>
+        }
+        @RenderBody()
+    </div>
+</body>
+</html>
