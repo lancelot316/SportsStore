@@ -1,4 +1,4 @@
-﻿using SportsStore.Domain;
+﻿using SportsStore.WebUI.Models.Domain;
 using SportsStore.WebUI.App_Start;
 using SportsStore.WebUI.Infrastructure.Binders;
 using System;

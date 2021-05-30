@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SportsStore.Domain;
+using SportsStore.WebUI.Models.Domain;
 using SportsStore.WebUI.Controllers;
 using SportsStore.WebUI.HtmlHelpers;
 using SportsStore.WebUI.Models;

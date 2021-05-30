@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportsStore.Domain
+namespace SportsStore.WebUI.Models.Domain
 {
     public class EmailSettings
     {

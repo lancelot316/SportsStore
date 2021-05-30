@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using SportsStore.Domain;
+using SportsStore.WebUI.Models.Domain;
 using SportsStore.WebUI.Controllers;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SportsStore.Domain
+namespace SportsStore.WebUI.Models.Domain
 {
     public class Cart
     {

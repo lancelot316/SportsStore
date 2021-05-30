@@ -252,12 +252,19 @@
     <Compile Include="Infrastructure\Binders\CartModelBinder.cs" />
     <Compile Include="Infrastructure\FormsAuthProvider.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
-    <Compile Include="Models\CartIndexViewModel.cs" />
-    <Compile Include="Models\LoginViewModel.cs" />
-    <Compile Include="Models\PagingInfo.cs" />
-    <Compile Include="Models\ProductsListViewModel.cs" />
-    <Compile Include="Models\Repository\EFDbContext.cs" />
-    <Compile Include="Models\Repository\Repository.cs" />
+    <Compile Include="Models\Domain\Cart.cs" />
+    <Compile Include="Models\Domain\EmailOrderPorcessor.cs" />
+    <Compile Include="Models\Domain\IAuthProvider.cs" />
+    <Compile Include="Models\Domain\IOrderProcesser.cs" />
+    <Compile Include="Models\Domain\IProductRepository.cs" />
+    <Compile Include="Models\Domain\Order.cs" />
+    <Compile Include="Models\Domain\Product.cs" />
+    <Compile Include="Models\ViewModels\CartIndexViewModel.cs" />
+    <Compile Include="Models\ViewModels\LoginViewModel.cs" />
+    <Compile Include="Models\ViewModels\PagingInfo.cs" />
+    <Compile Include="Models\ViewModels\ProductsListViewModel.cs" />
+    <Compile Include="Models\Domain\Repository\EFDbContext.cs" />
+    <Compile Include="Models\Domain\Repository\StoreRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Data\EntityState.cs" />
   </ItemGroup>
@@ -295,12 +302,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SportsStore.Domain\SportsStore.Domain.csproj">
-      <Project>{727f89dc-9f1f-4121-9a58-d0c271119a04}</Project>
-      <Name>SportsStore.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

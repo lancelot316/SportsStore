@@ -1,4 +1,4 @@
-﻿using SportsStore.Domain;
+﻿using SportsStore.WebUI.Models.Domain;
 using System.Web.Mvc;
 
 namespace SportsStore.WebUI.Infrastructure.Binders

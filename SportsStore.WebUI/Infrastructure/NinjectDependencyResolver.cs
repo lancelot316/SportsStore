@@ -4,8 +4,8 @@ using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
 using Ninject;
-using SportsStore.Domain;
-using SportsStore.WebUI.Models.Repository;
+using SportsStore.WebUI.Models.Domain;
+using SportsStore.WebUI.Models.Domain.Repository;
 
 namespace SportsStore.WebUI.Infrastructure
 {
@@ -32,7 +32,7 @@ namespace SportsStore.WebUI.Infrastructure
 
         private void AddBindings()
         {
-            kernel.Bind<IProductRepository>().To<Repository>();
+            kernel.Bind<IProductRepository>().To<StoreRepository>();
             EmailSettings emailSettings = new EmailSettings
             {
                 WriteAsFile = bool.Parse(ConfigurationManager

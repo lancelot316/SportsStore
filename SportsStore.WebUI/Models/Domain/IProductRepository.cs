@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SportsStore.Domain
+namespace SportsStore.WebUI.Models.Domain
 {
     public interface IProductRepository
     {

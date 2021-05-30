@@ -1,4 +1,4 @@
-﻿using SportsStore.Domain;
+﻿using SportsStore.WebUI.Models.Domain;
 using System.Web.Security;
 
 namespace SportsStore.WebUI.Infrastructure

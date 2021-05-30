@@ -1,4 +1,4 @@
-﻿using SportsStore.Domain;
+﻿using SportsStore.WebUI.Models.Domain;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;

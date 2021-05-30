@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportsStore.Domain
+namespace SportsStore.WebUI.Models.Domain
 {
     public interface IAuthProvider
     {

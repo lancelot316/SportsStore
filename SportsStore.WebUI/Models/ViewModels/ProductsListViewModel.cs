@@ -1,4 +1,4 @@
-﻿using SportsStore.Domain;
+﻿using SportsStore.WebUI.Models.Domain;
 using System.Collections.Generic;
 
 namespace SportsStore.WebUI.Models

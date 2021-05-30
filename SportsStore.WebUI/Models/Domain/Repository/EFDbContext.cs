@@ -1,11 +1,11 @@
-﻿using SportsStore.Domain;
+﻿using SportsStore.WebUI.Models.Domain;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace SportsStore.WebUI.Models.Repository
+namespace SportsStore.WebUI.Models.Domain.Repository
 {
     public class EFDbContext : DbContext
     {
