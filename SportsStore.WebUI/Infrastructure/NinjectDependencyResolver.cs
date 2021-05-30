@@ -33,15 +33,7 @@ namespace SportsStore.WebUI.Infrastructure
         private void AddBindings()
         {
             kernel.Bind<IProductRepository>().To<StoreRepository>();
-            EmailSettings emailSettings = new EmailSettings
-            {
-                WriteAsFile = bool.Parse(ConfigurationManager
-                    .AppSettings["Email.WriteAsFile"] ?? "false")
-            };
-
-            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
-                .WithConstructorArgument("settings", emailSettings);
-
+            kernel.Bind<IOrderRepository>().To<StoreRepository>();
             kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
     }

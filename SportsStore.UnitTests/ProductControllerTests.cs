@@ -164,7 +164,7 @@ namespace SportsStore.UnitTests
         {
 
             // Arrange - create a mock order processor
-            Mock<IOrderProcessor> mock = new Mock<IOrderProcessor>();
+            Mock<IOrderRepository> mock = new Mock<IOrderRepository>();
             // Arrange - create an empty cart
             Cart cart = new Cart();
             // Arrange - create shipping details
@@ -175,7 +175,7 @@ namespace SportsStore.UnitTests
             // Act
             ViewResult result = target.Checkout(cart, shippingDetails);
             // Assert - check that the order hasn't been passed on to the processor
-            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<Order>()),
+            mock.Verify(m => m.SaveOrder(It.IsAny<Order>()),
                 Times.Never());
             // Assert - check that the method is returning the default view
             Assert.AreEqual("", result.ViewName);
@@ -188,7 +188,7 @@ namespace SportsStore.UnitTests
         {
 
             // Arrange - create a mock order processor
-            Mock<IOrderProcessor> mock = new Mock<IOrderProcessor>();
+            Mock<IOrderRepository> mock = new Mock<IOrderRepository>();
 
             // Arrange - create a cart with an item
             Cart cart = new Cart();
@@ -204,7 +204,7 @@ namespace SportsStore.UnitTests
             ViewResult result = target.Checkout(cart, new Order());
 
             // Assert - check that the order hasn't been passed on to the processor
-            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<Order>()),
+            mock.Verify(m => m.SaveOrder(It.IsAny<Order>()),
                 Times.Never());
             // Assert - check that the method is returning the default view
             Assert.AreEqual("", result.ViewName);
@@ -217,7 +217,7 @@ namespace SportsStore.UnitTests
         {
 
             // Arrange - create a mock order processor
-            Mock<IOrderProcessor> mock = new Mock<IOrderProcessor>();
+            Mock<IOrderRepository> mock = new Mock<IOrderRepository>();
 
             // Arrange - create a cart with an item
             Cart cart = new Cart();
@@ -230,7 +230,7 @@ namespace SportsStore.UnitTests
             ViewResult result = target.Checkout(cart, new Order());
 
             // Assert - check that the order has been passed on to the processor
-            mock.Verify(m => m.ProcessOrder(It.IsAny<Cart>(), It.IsAny<Order>()),
+            mock.Verify(m => m.SaveOrder(It.IsAny<Order>()),
                 Times.Once());
             // Assert - check that the method is returning the Completed view
             Assert.AreEqual("Completed", result.ViewName);

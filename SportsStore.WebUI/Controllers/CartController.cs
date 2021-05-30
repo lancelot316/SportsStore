@@ -7,14 +7,14 @@ namespace SportsStore.WebUI.Controllers
 {
     public class CartController : Controller
     {
-        private IProductRepository repository;
-        private IOrderProcessor orderProcessor;
+        private IProductRepository productRepository;
+        private IOrderRepository orderRepository;
 
         
-        public CartController(IProductRepository repo, IOrderProcessor proc)
+        public CartController(IProductRepository productRepo, IOrderRepository orderRepo)
         {
-            repository = repo;
-            orderProcessor = proc;
+            productRepository = productRepo;
+            orderRepository = orderRepo;
         }
 
         public ViewResult Index(Cart cart, string returnUrl)
@@ -29,7 +29,7 @@ namespace SportsStore.WebUI.Controllers
         public RedirectToRouteResult AddToCart(Cart cart, int productId,
                 string returnUrl)
         {
-            Product product = repository.Products
+            Product product = productRepository.Products
                 .FirstOrDefault(p => p.ProductID == productId);
 
             if (product != null)
@@ -42,7 +42,7 @@ namespace SportsStore.WebUI.Controllers
         public RedirectToRouteResult RemoveFromCart(Cart cart, int productId,
                 string returnUrl)
         {
-            Product product = repository.Products
+            Product product = productRepository.Products
                 .FirstOrDefault(p => p.ProductID == productId);
 
             if (product != null)
@@ -72,7 +72,16 @@ namespace SportsStore.WebUI.Controllers
 
             if (ModelState.IsValid)
             {
-                orderProcessor.ProcessOrder(cart, order);
+                foreach(var line in cart.Lines)
+                {
+                    order.OrderLines.Add(
+                        new OrderLine { 
+                            Order = order, 
+                            Product = line.Product, 
+                            Quantity = line.Quantity 
+                        });
+                }
+                orderRepository.SaveOrder(order);
                 cart.Clear();
                 return View("Completed");
             }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace SportsStore.WebUI.Models.Domain
 {
-    public interface IOrderProcessor
+    public interface IOrderRepository
     {
-        void ProcessOrder(Cart cart, Order order);
+        IEnumerable<Order> Orders { get; }
+
+        void SaveOrder(Order order);
     }
 }

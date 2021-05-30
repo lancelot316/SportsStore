@@ -1,11 +1,10 @@
-﻿using SportsStore.WebUI.Models.Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
 namespace SportsStore.WebUI.Models.Domain.Repository
 {
-    public class StoreRepository : IProductRepository
+    public class StoreRepository : IProductRepository, IOrderRepository
     {
         private EFDbContext context = new EFDbContext();
 

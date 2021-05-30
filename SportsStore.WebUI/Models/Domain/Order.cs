@@ -26,7 +26,7 @@ namespace SportsStore.WebUI.Models.Domain
         public string Country { get; set; }
         public bool GiftWrap { get; set; }
         public bool Dispatched { get; set; }
-        public virtual List<OrderLine> OrderLines { get; set; }
+        public virtual List<OrderLine> OrderLines { get; set; } = new List<OrderLine>();
     }
 
     public class OrderLine

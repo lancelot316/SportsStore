@@ -253,9 +253,8 @@
     <Compile Include="Infrastructure\FormsAuthProvider.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\Domain\Cart.cs" />
-    <Compile Include="Models\Domain\EmailOrderPorcessor.cs" />
     <Compile Include="Models\Domain\IAuthProvider.cs" />
-    <Compile Include="Models\Domain\IOrderProcesser.cs" />
+    <Compile Include="Models\Domain\IOrderRepository.cs" />
     <Compile Include="Models\Domain\IProductRepository.cs" />
     <Compile Include="Models\Domain\Order.cs" />
     <Compile Include="Models\Domain\Product.cs" />
