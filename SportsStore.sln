@@ -9,6 +9,10 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Databa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.UnitTests", "SportsStore.UnitTests\SportsStore.UnitTests.csproj", "{97E4DBF0-9C35-4ABD-B3CB-694A5FBCA7E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.Web", "SportsStore.Web\SportsStore.Web.csproj", "{3C11AB30-94B4-4B9F-AF56-52B3B6FE2162}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.Tests", "SportsStore.Tests\SportsStore.Tests.csproj", "{940A84D7-F142-4043-88E6-EA8960E7E0C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,14 @@ Global
 		{97E4DBF0-9C35-4ABD-B3CB-694A5FBCA7E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E4DBF0-9C35-4ABD-B3CB-694A5FBCA7E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E4DBF0-9C35-4ABD-B3CB-694A5FBCA7E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C11AB30-94B4-4B9F-AF56-52B3B6FE2162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C11AB30-94B4-4B9F-AF56-52B3B6FE2162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C11AB30-94B4-4B9F-AF56-52B3B6FE2162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C11AB30-94B4-4B9F-AF56-52B3B6FE2162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{940A84D7-F142-4043-88E6-EA8960E7E0C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{940A84D7-F142-4043-88E6-EA8960E7E0C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{940A84D7-F142-4043-88E6-EA8960E7E0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{940A84D7-F142-4043-88E6-EA8960E7E0C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
