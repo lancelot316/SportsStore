@@ -1,0 +1,16 @@
+﻿@model IEnumerable<string>
+<nav class="nav nav-pills nav-fill flex-column">
+    <a class="nav-link border mt-1" asp-action="List"
+       asp-controller="Product" asp-route-category="">
+        Home
+    </a>
+    @foreach (string category in Model)
+    {
+        <a class="nav-link @(category == ViewBag.SelectedCategory ? "active" : "") border mt-1"
+           asp-action="List" asp-controller="Product"
+           asp-route-category="@category"
+           asp-route-page="1">
+            @category
+        </a>
+    }
+</nav>

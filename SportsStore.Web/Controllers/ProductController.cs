@@ -33,7 +33,8 @@ namespace SportsStore.Web.Controllers
                     TotalItems = category == null ?
                         _repo.Products.Count() :
                         _repo.Products.Where(e => e.Category == category).Count()
-                }
+                },
+                CurrentCategory = category
             };
             return View(model);
         }

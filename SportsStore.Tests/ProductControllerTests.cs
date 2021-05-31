@@ -23,17 +23,17 @@ namespace SportsStore.Tests
             });
             ProductController controller = new ProductController(mock.Object);
             controller.PageSize = 3;
-            
+
             // Act
             ProductsListViewModel result = (ProductsListViewModel)controller.List(null, 2).Model;
 
             // Assert
             Product[] prodArray = result.Products.ToArray();
-           Assert.True(prodArray.Length == 2);
-           Assert.Equal("P4", prodArray[0].Name);
-           Assert.Equal("P5", prodArray[1].Name);
+            Assert.True(prodArray.Length == 2);
+            Assert.Equal("P4", prodArray[0].Name);
+            Assert.Equal("P5", prodArray[1].Name);
         }
-               
+
         [Fact]
         public void Can_Send_Pagination_View_Model()
         {
@@ -62,7 +62,7 @@ namespace SportsStore.Tests
             Assert.Equal(5, pageInfo.TotalItems);
             Assert.Equal(2, pageInfo.TotalPages);
         }
-        /*
+
         [Fact]
         public void Can_Filter_Products()
         {
@@ -80,17 +80,17 @@ namespace SportsStore.Tests
             // Arrange - create a controller and make the page size 3 items
             ProductController controller = new ProductController(mock.Object);
             controller.PageSize = 3;
-            
+
             // Action
             Product[] result = ((ProductsListViewModel)controller.List("Cat2", 1).Model)
                 .Products.ToArray();
-            
-            // Assert
-            Assert.AreEqual(result.Length, 2);
-           Assert.True(result[0].Name == "P2" && result[0].Category == "Cat2");
-           Assert.True(result[1].Name == "P4" && result[1].Category == "Cat2");
-        }
 
+            // Assert
+            Assert.Equal(2, result.Length);
+            Assert.True(result[0].Name == "P2" && result[0].Category == "Cat2");
+            Assert.True(result[1].Name == "P4" && result[1].Category == "Cat2");
+        }
+        
         [Fact]
         public void Generate_Category_Specific_Product_Count()
         {
@@ -121,12 +121,12 @@ namespace SportsStore.Tests
                 .List(null).Model).PagingInfo.TotalItems;
 
             // Assert
-            Assert.AreEqual(res1, 2);
-            Assert.AreEqual(res2, 2);
-            Assert.AreEqual(res3, 1);
-            Assert.AreEqual(resAll, 5);
+            Assert.Equal(2, res1);
+            Assert.Equal(2, res2);
+            Assert.Equal(1, res3);
+            Assert.Equal(5, resAll);
         }
-
+        /*
         [Fact]
         public void Cannot_Checkout_Empty_Cart()
         {
