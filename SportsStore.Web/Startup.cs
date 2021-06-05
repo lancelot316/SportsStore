@@ -29,6 +29,10 @@ namespace SportsStore.Web
             });
 
             services.AddScoped<IProductRepository, StoreRepository>();
+            services.AddScoped<IOrderRepository, StoreRepository>();
+
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,27 +45,11 @@ namespace SportsStore.Web
 
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    "catpage",
-                    "{category}/Page{page:int}",
-                    new { Controller = "Product", action = "List" });
-                endpoints.MapControllerRoute(
-                    "page", 
-                    "Page{page:int}",
-                    new { Controller = "Product", action = "List", page = 1 });
-                endpoints.MapControllerRoute(
-                    "category", 
-                    "{category}",
-                    new { Controller = "Product", action = "List", page = 1 });
-                endpoints.MapControllerRoute(
-                    "pagination",
-                    "Page{page}",
-                    new { Controller = "Product", action = "List", page = 1 });
-                
                 endpoints.MapControllerRoute(null,
                 "",
                 new
@@ -71,6 +59,29 @@ namespace SportsStore.Web
                     category = (string)null,
                     page = 1
                 });
+
+                endpoints.MapControllerRoute(
+                    "catpage",
+                    "{category}/Page{page:int}",
+                    new { Controller = "Product", action = "List" });
+
+                endpoints.MapControllerRoute(
+                    "page", 
+                    "Page{page:int}",
+                    new { Controller = "Product", action = "List", page = 1 });
+                
+                endpoints.MapControllerRoute(
+                    "category", 
+                    "{category}",
+                    new { Controller = "Product", action = "List", page = 1 });
+                
+                endpoints.MapControllerRoute(
+                    "pagination",
+                    "Page{page}",
+                    new { Controller = "Product", action = "List", page = 1 });
+                
+                
+                endpoints.MapControllerRoute(null, "{controller}/{action}");
 
                 endpoints.MapDefaultControllerRoute();
             });
