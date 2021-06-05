@@ -27,8 +27,8 @@
                     @((line.Quantity * line.Product.Price).ToString("c"))
                 </td>
                 <td>
-                    <form asp-action="RemoveFromCart">
-                        <input type="hidden" asp-for="@line.Product.ProductID" />
+                    <form asp-action="RemoveFromCart" method="post">
+                        <input type="hidden" name="ProductId" value="@line.Product.ProductID"  />
                         <input type="hidden" name="returnUrl"
                                value="@ViewContext.HttpContext.Request.PathAndQuery()" />
                         <input type="submit" value="Remove" class="btn btn-danger" />

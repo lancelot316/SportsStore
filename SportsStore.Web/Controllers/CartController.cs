@@ -48,18 +48,23 @@ namespace SportsStore.Web.Controllers
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        //public RedirectToRouteResult RemoveFromCart(Cart cart, int productId,
-        //        string returnUrl)
-        //{
-        //    Product product = productRepository.Products
-        //        .FirstOrDefault(p => p.ProductID == productId);
+        [HttpPost]
+        public RedirectToActionResult RemoveFromCart(int productID, string returnUrl)
+        {
+            Product product = productRepository.Products
+                .FirstOrDefault(p => p.ProductID == productID);
 
-        //    if (product != null)
-        //    {
-        //        cart.RemoveLine(product);
-        //    }
-        //    return RedirectToAction("Index", new { returnUrl });
-        //}
+            var cart = HttpContext.Session.GetJson<Cart>("cart");
+
+            if (product != null)
+            {
+                cart.RemoveLine(product);
+            }
+
+            HttpContext.Session.SetJson("cart", cart);
+
+            return RedirectToAction("Index", new { returnUrl });
+        }
 
         //public PartialViewResult Summary(Cart cart)
         //{
