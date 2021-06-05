@@ -7,7 +7,6 @@
     [City]       NVARCHAR (MAX) NULL,
     [State]      NVARCHAR (MAX) NULL,
     [GiftWrap]   BIT            NOT NULL,
-    [Dispatched] BIT            NOT NULL,
     [Zip] NVARCHAR(MAX) NULL, 
     [Country] NVARCHAR(MAX) NOT NULL, 
     PRIMARY KEY CLUSTERED ([OrderId] ASC)

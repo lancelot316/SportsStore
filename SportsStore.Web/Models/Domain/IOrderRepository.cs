@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 
 namespace SportsStore.Web.Models.Domain
 {
     public interface IOrderRepository
     {
-        IEnumerable<Order> Orders { get; }
+        IQueryable<Order> Orders { get; }
 
         void SaveOrder(Order order);
     }

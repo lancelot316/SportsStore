@@ -89,7 +89,7 @@ namespace SportsStore.WebUI.Models.Domain.Repository
                     dbOrder.City = order.City;
                     dbOrder.State = order.State;
                     dbOrder.GiftWrap = order.GiftWrap;
-                    dbOrder.Dispatched = order.Dispatched;
+                    //dbOrder.Dispatched = order.Dispatched;
                 }
             }
             context.SaveChanges();

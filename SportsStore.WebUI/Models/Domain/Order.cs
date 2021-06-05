@@ -25,7 +25,7 @@ namespace SportsStore.WebUI.Models.Domain
         [Required(ErrorMessage = "Please enter a country name")]
         public string Country { get; set; }
         public bool GiftWrap { get; set; }
-        public bool Dispatched { get; set; }
+        //public bool Dispatched { get; set; }
         public virtual List<OrderLine> OrderLines { get; set; } = new List<OrderLine>();
     }
 

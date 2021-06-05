@@ -60,33 +60,34 @@ namespace SportsStore.Web.Controllers
             return Redirect(returnUrl);
         }
 
-        //[HttpPost]
-        //public ViewResult Checkout(Cart cart, Order order)
-        //{
-        //    if (cart.Lines.Count() == 0)
-        //    {
-        //        ModelState.AddModelError("", "Sorry, your cart is empty!");
-        //    }
+        public ViewResult Checkout()
+        {
+            return View(new Order());
+            //if (cart.Lines.Count() == 0)
+            //{
+            //    ModelState.AddModelError("", "Sorry, your cart is empty!");
+            //}
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        foreach(var line in cart.Lines)
-        //        {
-        //            order.OrderLines.Add(
-        //                new OrderLine { 
-        //                    Order = order, 
-        //                    Product = line.Product, 
-        //                    Quantity = line.Quantity 
-        //                });
-        //        }
-        //        orderRepository.SaveOrder(order);
-        //        cart.Clear();
-        //        return View("Completed");
-        //    }
-        //    else
-        //    {
-        //        return View(order);
-        //    }
-        //}
+            //if (ModelState.IsValid)
+            //{
+            //    foreach (var line in cart.Lines)
+            //    {
+            //        order.OrderLines.Add(
+            //            new OrderLine
+            //            {
+            //                Order = order,
+            //                Product = line.Product,
+            //                Quantity = line.Quantity
+            //            });
+            //    }
+            //    orderRepository.SaveOrder(order);
+            //    cart.Clear();
+            //    return View("Completed");
+            //}
+            //else
+            //{
+            //    return View(order);
+            //}
+        }
     }
 }

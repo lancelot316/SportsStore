@@ -16,7 +16,7 @@ namespace SportsStore.Web.Models.Domain.Repository
         {
             get { return context.Products; }
         }
-        
+
         //public void SaveProduct(Product product)
         //{
         //    if (product.ProductID == 0)
@@ -38,7 +38,7 @@ namespace SportsStore.Web.Models.Domain.Repository
         //    }
         //    context.SaveChanges();
         //}
-        
+
         //public void DeleteProduct(Product product)
         //{
         //    IEnumerable<Order> orders = context.Orders
@@ -65,21 +65,44 @@ namespace SportsStore.Web.Models.Domain.Repository
         //    return dbEntry;
         //}
 
-        public IEnumerable<Order> Orders => context.Orders
-              .Include(o => o.OrderLines
-                  .Select(ol => ol.Product));
+        public IQueryable<Order> Orders => context.Orders
+                            .Include(o => o.Lines)
+                            .ThenInclude(l => l.Product);
 
         public void SaveOrder(Order order)
         {
-            context.AttachRange(order.OrderLines.Select(x => x.Product));
+            context.AttachRange(order.Lines.Select(l => l.Product));
 
-            if (order.OrderId == 0)
+            if (order.OrderID == 0)
             {
                 context.Orders.Add(order);
-
-                
-
             }
+
+            //if (order.OrderID == 0)
+            //{
+            //    context.Orders.Add(order);
+
+            //    foreach (OrderLine line in order.OrderLines)
+            //    {
+            //        context.Entry(line.Product).State = EntityState.Modified;
+            //    }
+            //}
+            //else
+            //{
+            //    Order dbOrder = context.Orders.Find(order.OrderID);
+            //    if (dbOrder != null)
+            //    {
+            //        dbOrder.Name = order.Name;
+            //        dbOrder.Line1 = order.Line1;
+            //        dbOrder.Line2 = order.Line2;
+            //        dbOrder.Line3 = order.Line3;
+            //        dbOrder.City = order.City;
+            //        dbOrder.State = order.State;
+            //        dbOrder.Zip = order.Zip;
+            //        dbOrder.Country = order.Country;
+            //        dbOrder.GiftWrap = order.GiftWrap;
+            //    }
+            //}
             context.SaveChanges();
         }
     }
