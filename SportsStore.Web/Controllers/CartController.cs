@@ -60,16 +60,6 @@ namespace SportsStore.Web.Controllers
             return Redirect(returnUrl);
         }
 
-        //public PartialViewResult Summary(Cart cart)
-        //{
-        //    return PartialView(cart);
-        //}
-
-        //public ViewResult Checkout()
-        //{
-        //    return View(new Order());
-        //}
-
         //[HttpPost]
         //public ViewResult Checkout(Cart cart, Order order)
         //{
