@@ -44,7 +44,7 @@ namespace SportsStore.Tests
             mockContext.SetupGet(c => c.Session).Returns(mockSession.Object); ;
 
             // Arrange - create the controller
-            CartController target = new CartController(mockRepo.Object, null);
+            CartController target = new CartController(mockRepo.Object, null, testCart);
             target.ControllerContext.HttpContext = mockContext.Object;
 
             // Act - add a product to the cart
@@ -79,7 +79,7 @@ namespace SportsStore.Tests
             mockContext.SetupGet(c => c.Session).Returns(mockSession.Object); ;
 
             // Arrange - create the controller
-            CartController target = new CartController(mockRepo.Object, null);
+            CartController target = new CartController(mockRepo.Object, null , testCart);
             target.ControllerContext.HttpContext = mockContext.Object;
 
             // Act - add a product to the cart
@@ -111,7 +111,7 @@ namespace SportsStore.Tests
             mockContext.SetupGet(c => c.Session).Returns(mockSession.Object); ;
 
             // Arrange - create the controller
-            CartController target = new CartController(null, null);
+            CartController target = new CartController(null, null, testCart);
             target.ControllerContext.HttpContext = mockContext.Object;
 
             // Act - call the Index action method

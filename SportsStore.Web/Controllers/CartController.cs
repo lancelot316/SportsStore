@@ -10,12 +10,14 @@ namespace SportsStore.Web.Controllers
     {
         private IProductRepository productRepository;
         private IOrderRepository orderRepository;
+        private Cart cart;
 
-        
-        public CartController(IProductRepository productRepo, IOrderRepository orderRepo)
+
+        public CartController(IProductRepository productRepo, IOrderRepository orderRepo, Cart cart)
         {
             productRepository = productRepo;
             orderRepository = orderRepo;
+            this.cart = cart;
         }
 
 
@@ -24,8 +26,8 @@ namespace SportsStore.Web.Controllers
         {
             var model = new CartIndexViewModel
             {
-                ReturnUrl = returnUrl,
-                Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart()
+                ReturnUrl = returnUrl ?? "/",
+                Cart = cart
             };
             return View(model);
         }
@@ -36,34 +38,26 @@ namespace SportsStore.Web.Controllers
             Product product = productRepository.Products
                 .FirstOrDefault(p => p.ProductID == productId);
 
-            var cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
-
             if (product != null)
             {
                 cart.AddItem(product, 1);
             }
-                        
-            HttpContext.Session.SetJson("cart", cart);
 
             return RedirectToAction("Index", new { returnUrl });
         }
 
         [HttpPost]
-        public RedirectToActionResult RemoveFromCart(int productID, string returnUrl)
+        public IActionResult RemoveFromCart(int productID, string returnUrl)
         {
             Product product = productRepository.Products
                 .FirstOrDefault(p => p.ProductID == productID);
-
-            var cart = HttpContext.Session.GetJson<Cart>("cart");
 
             if (product != null)
             {
                 cart.RemoveLine(product);
             }
 
-            HttpContext.Session.SetJson("cart", cart);
-
-            return RedirectToAction("Index", new { returnUrl });
+            return Redirect(returnUrl);
         }
 
         //public PartialViewResult Summary(Cart cart)

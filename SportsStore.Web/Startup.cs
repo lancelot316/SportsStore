@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using SportsStore.Web.Models.Domain.Repository;
 using SportsStore.Web.Models.Domain;
+using SportsStore.Web.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace SportsStore.Web
 {
@@ -28,11 +30,13 @@ namespace SportsStore.Web
                     Configuration["ConnectionStrings:EFDbContext"]);
             });
 
-            services.AddScoped<IProductRepository, StoreRepository>();
-            services.AddScoped<IOrderRepository, StoreRepository>();
-
             services.AddDistributedMemoryCache();
             services.AddSession();
+
+            services.AddScoped<IProductRepository, StoreRepository>();
+            services.AddScoped<IOrderRepository, StoreRepository>();
+            services.AddScoped(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
