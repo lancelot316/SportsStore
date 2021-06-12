@@ -1,0 +1,24 @@
+﻿@model Product
+ 
+<input type="hidden" asp-for="ProductID" />
+<div class="mb-3">
+    <label class="form-label">Name</label>
+    <input class="form-control" asp-for="Name" />
+</div>
+<div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea class="form-control" asp-for="Description"></textarea>
+</div>
+<div class="mb-3">
+    <label class="form-label">Category</label>
+    <input class="form-control" asp-for="Category" />
+</div>
+<div class="mb-3">
+    <label class="form-label">Price</label>
+    <input class="form-control" asp-for="Price" />
+</div>
+
+<div class="actionButtons">
+    <input class="btn btn-warning" type="submit" value="Save" />
+    <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+</div>

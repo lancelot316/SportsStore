@@ -7,7 +7,7 @@ namespace SportsStore.Web.Models.Domain
         IEnumerable<Product> Products { get; }
 
         //void DeleteProduct(Product product);
-        //Product DeleteProduct(int productId);
-        //void SaveProduct(Product product);
+        Product DeleteProduct(int productId);
+        void SaveProduct(Product product);
     }
 }

@@ -1,12 +1,8 @@
 ﻿using System.Linq;
-using Moq;
 using SportsStore.Web.Models.Domain;
-using SportsStore.Web.Controllers;
 using Xunit;
-using Microsoft.AspNetCore.Mvc;
-using SportsStore.Web.Models.ViewModels;
 
-namespace SportsStore.UnitTests
+namespace SportsStore.Tests
 {
     public class CartTests
     {

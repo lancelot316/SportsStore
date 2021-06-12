@@ -17,27 +17,27 @@ namespace SportsStore.Web.Models.Domain.Repository
             get { return context.Products; }
         }
 
-        //public void SaveProduct(Product product)
-        //{
-        //    if (product.ProductID == 0)
-        //    {
-        //        product = context.Products.Add(product);
-        //    }
-        //    else
-        //    {
-        //        Product dbProduct = context.Products.Find(product.ProductID);
-        //        if (dbProduct != null)
-        //        {
-        //            dbProduct.Name = product.Name;
-        //            dbProduct.Description = product.Description;
-        //            dbProduct.Price = product.Price;
-        //            dbProduct.Category = product.Category;
-        //            dbProduct.ImageData = product.ImageData;
-        //            dbProduct.ImageMimeType = product.ImageMimeType;
-        //        }
-        //    }
-        //    context.SaveChanges();
-        //}
+        public void SaveProduct(Product product)
+        {
+            if (product.ProductID == 0)
+            {
+                context.Products.Add(product);
+            }
+            else
+            {
+                Product dbProduct = context.Products.Find(product.ProductID);
+                if (dbProduct != null)
+                {
+                    dbProduct.Name = product.Name;
+                    dbProduct.Description = product.Description;
+                    dbProduct.Price = product.Price;
+                    dbProduct.Category = product.Category;
+                    dbProduct.ImageData = product.ImageData;
+                    dbProduct.ImageMimeType = product.ImageMimeType;
+                }
+            }
+            context.SaveChanges();
+        }
 
         //public void DeleteProduct(Product product)
         //{
@@ -54,16 +54,16 @@ namespace SportsStore.Web.Models.Domain.Repository
         //    context.SaveChanges();
         //}
 
-        //public Product DeleteProduct(int productID)
-        //{
-        //    Product dbEntry = context.Products.Find(productID);
-        //    if (dbEntry != null)
-        //    {
-        //        context.Products.Remove(dbEntry);
-        //        context.SaveChanges();
-        //    }
-        //    return dbEntry;
-        //}
+        public Product DeleteProduct(int productID)
+        {
+            Product dbEntry = context.Products.Find(productID);
+            if (dbEntry != null)
+            {
+                context.Products.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
 
         public IQueryable<Order> Orders => context.Orders
                             .Include(o => o.Lines)
@@ -77,32 +77,22 @@ namespace SportsStore.Web.Models.Domain.Repository
             {
                 context.Orders.Add(order);
             }
-
-            //if (order.OrderID == 0)
-            //{
-            //    context.Orders.Add(order);
-
-            //    foreach (OrderLine line in order.OrderLines)
-            //    {
-            //        context.Entry(line.Product).State = EntityState.Modified;
-            //    }
-            //}
-            //else
-            //{
-            //    Order dbOrder = context.Orders.Find(order.OrderID);
-            //    if (dbOrder != null)
-            //    {
-            //        dbOrder.Name = order.Name;
-            //        dbOrder.Line1 = order.Line1;
-            //        dbOrder.Line2 = order.Line2;
-            //        dbOrder.Line3 = order.Line3;
-            //        dbOrder.City = order.City;
-            //        dbOrder.State = order.State;
-            //        dbOrder.Zip = order.Zip;
-            //        dbOrder.Country = order.Country;
-            //        dbOrder.GiftWrap = order.GiftWrap;
-            //    }
-            //}
+            else
+            {
+                Order dbOrder = context.Orders.Find(order.OrderID);
+                if (dbOrder != null)
+                {
+                    dbOrder.Name = order.Name;
+                    dbOrder.Line1 = order.Line1;
+                    dbOrder.Line2 = order.Line2;
+                    dbOrder.Line3 = order.Line3;
+                    dbOrder.City = order.City;
+                    dbOrder.State = order.State;
+                    dbOrder.Zip = order.Zip;
+                    dbOrder.Country = order.Country;
+                    dbOrder.GiftWrap = order.GiftWrap;
+                }
+            }
             context.SaveChanges();
         }
     }
