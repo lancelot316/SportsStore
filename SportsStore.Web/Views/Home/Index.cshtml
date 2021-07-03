@@ -1,0 +1,26 @@
+﻿@model ProductsIndexViewModel
+
+@{
+    ViewBag.Title = "Products";
+}
+<h1>Home</h1>
+
+@foreach (var product in Model.Products)
+{
+    <partial name="ProductSummary" model="product" />
+}
+
+<div class="d-flex justify-content-center">
+    <div page-model="@Model.PagingInfo"
+         page-action="Index"
+         page-classes-enabled="true"
+         page-class="btn"
+         page-class-normal="btn-outline-dark"
+         page-class-selected="btn-primary"
+         page-url-category="@Model.CurrentCategory"
+         class="btn-group">
+    </div>
+</div>
+
+
+

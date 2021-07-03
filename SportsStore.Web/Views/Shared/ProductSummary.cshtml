@@ -20,7 +20,7 @@
     </header>
     <div class="card-text d-flex justify-content-between align-items-center">
         @Model.Description
-        <form id="@Model.ProductID" asp-controller="Cart" asp-action="AddToCart" method="post">
+        <form id="@Model.ProductID" asp-page="/Cart" method="post">
             <input type="hidden" asp-for="ProductID" />
             <input type="hidden" name="returnUrl"
                    value="@ViewContext.HttpContext.Request.PathAndQuery()" />

@@ -1,25 +1,24 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SportsStore.Web.Models.Domain;
-using SportsStore.Web.Models;
 using SportsStore.Web.Models.ViewModels;
+using System.Linq;
 
 namespace SportsStore.Web.Controllers
 {
-    public class ProductController : Controller
+    public class HomeController : Controller
     {
         private IProductRepository _repo;
         public int PageSize = 4;
 
-        public ProductController(IProductRepository repo)
+        public HomeController(IProductRepository repo)
         {
             _repo = repo;
         }
 
 
-        public ViewResult List(string category, int page = 1)
+        public ViewResult Index(string category, int page = 1)
         {
-            ProductsListViewModel model = new ProductsListViewModel
+            ProductsIndexViewModel model = new ProductsIndexViewModel
             {
                 Products = _repo.Products
                 .Where(p => category == null || p.Category == category)

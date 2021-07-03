@@ -1,0 +1,47 @@
+﻿@page
+@model SportsStore.Web.Pages.CartModel
+
+<h2>Your cart</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Quantity</th>
+            <th>Item</th>
+            <th class="text-end">Price</th>
+            <th class="text-end">Subtotal</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Cart.Lines)
+        {
+            <tr>
+                <td class="text-center">@line.Quantity</td>
+                <td class="text-start">@line.Product.Name</td>
+                <td class="text-end">@line.Product.Price.ToString("c")</td>
+                <td class="text-end">
+                    @((line.Quantity * line.Product.Price).ToString("c"))
+                </td>
+                <td>
+                    <form asp-action="RemoveFromCart" method="post">
+                        <input type="hidden" name="ProductId" value="@line.Product.ProductID" />
+                        <input type="hidden" name="returnUrl"
+                               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                        <input type="submit" value="Remove" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-end">Total:</td>
+            <td class="text-end">@Model.Cart.ComputeTotalValue().ToString("c")</td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+<p class="text-center">
+    <a class="btn btn-lg btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
+    @*<a class="btn btn-lg btn-primary" asp-controller="Order" asp-action="Checkout">Checkout Now</a>*@
+</p>

@@ -37,6 +37,8 @@ namespace SportsStore.Web
             services.AddScoped<IOrderRepository, StoreRepository>();
             services.AddScoped(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,40 +56,20 @@ namespace SportsStore.Web
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(null,
-                "",
-                new
-                {
-                    controller = "Product",
-                    action = "List",
-                    category = (string)null,
-                    page = 1
-                });
-
-                endpoints.MapControllerRoute(
-                    "catpage",
-                    "{category}/Page{page:int}",
-                    new { Controller = "Product", action = "List" });
-
-                endpoints.MapControllerRoute(
-                    "page", 
-                    "Page{page:int}",
-                    new { Controller = "Product", action = "List", page = 1 });
-                
-                endpoints.MapControllerRoute(
-                    "category", 
-                    "{category}",
-                    new { Controller = "Product", action = "List", page = 1 });
-                
-                endpoints.MapControllerRoute(
-                    "pagination",
-                    "Page{page}",
-                    new { Controller = "Product", action = "List", page = 1 });
-                
-                
-                endpoints.MapControllerRoute(null, "{controller}/{action}");
+                endpoints.MapControllerRoute("catpage",
+                    "{category}/Page{productPage:int}",
+                    new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute("page", "Page{productPage:int}",
+                    new { Controller = "Home", action = "Index", productPage = 1 });
+                endpoints.MapControllerRoute("category", "{category}",
+                    new { Controller = "Home", action = "Index", productPage = 1 });
+                endpoints.MapControllerRoute("pagination",
+                    "Products/Page{productPage}",
+                    new { Controller = "Home", action = "Index", productPage = 1 });
+                endpoints.MapDefaultControllerRoute();
 
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
         }
     }

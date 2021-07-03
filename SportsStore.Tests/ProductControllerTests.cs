@@ -7,7 +7,7 @@ using Xunit;
 
 namespace SportsStore.Tests
 {
-    public class ProductControllerTests
+    public class HomeControllerTests
     {
         [Fact]
         public void Can_Paginate()
@@ -21,11 +21,11 @@ namespace SportsStore.Tests
                 new Product {ProductID = 4, Name = "P4"},
                 new Product {ProductID = 5, Name = "P5"}
             });
-            ProductController controller = new ProductController(mock.Object);
+            HomeController controller = new HomeController(mock.Object);
             controller.PageSize = 3;
 
             // Act
-            ProductsListViewModel result = (ProductsListViewModel)controller.List(null, 2).Model;
+            ProductsIndexViewModel result = (ProductsIndexViewModel)controller.Index(null, 2).Model;
 
             // Assert
             Product[] prodArray = result.Products.ToArray();
@@ -49,11 +49,11 @@ namespace SportsStore.Tests
             });
 
             // Arrange
-            ProductController controller = new ProductController(mock.Object);
+            HomeController controller = new HomeController(mock.Object);
             controller.PageSize = 3;
 
             // Act
-            ProductsListViewModel result = (ProductsListViewModel)controller.List(null, 2).Model;
+            ProductsIndexViewModel result = (ProductsIndexViewModel)controller.Index(null, 2).Model;
 
             // Assert
             PagingInfo pageInfo = result.PagingInfo;
@@ -78,11 +78,11 @@ namespace SportsStore.Tests
             });
 
             // Arrange - create a controller and make the page size 3 items
-            ProductController controller = new ProductController(mock.Object);
+            HomeController controller = new HomeController(mock.Object);
             controller.PageSize = 3;
 
             // Action
-            Product[] result = ((ProductsListViewModel)controller.List("Cat2", 1).Model)
+            Product[] result = ((ProductsIndexViewModel)controller.Index("Cat2", 1).Model)
                 .Products.ToArray();
 
             // Assert
@@ -107,18 +107,18 @@ namespace SportsStore.Tests
             });
 
             // Arrange - create a controller and make the page size 3 items
-            ProductController target = new ProductController(mock.Object);
+            HomeController target = new HomeController(mock.Object);
             target.PageSize = 3;
 
             // Action - test the product counts for different categories
-            int res1 = ((ProductsListViewModel)target
-                .List("Cat1").Model).PagingInfo.TotalItems;
-            int res2 = ((ProductsListViewModel)target
-                .List("Cat2").Model).PagingInfo.TotalItems;
-            int res3 = ((ProductsListViewModel)target
-                .List("Cat3").Model).PagingInfo.TotalItems;
-            int resAll = ((ProductsListViewModel)target
-                .List(null).Model).PagingInfo.TotalItems;
+            int res1 = ((ProductsIndexViewModel)target
+                .Index("Cat1").Model).PagingInfo.TotalItems;
+            int res2 = ((ProductsIndexViewModel)target
+                .Index("Cat2").Model).PagingInfo.TotalItems;
+            int res3 = ((ProductsIndexViewModel)target
+                .Index("Cat3").Model).PagingInfo.TotalItems;
+            int resAll = ((ProductsIndexViewModel)target
+                .Index(null).Model).PagingInfo.TotalItems;
 
             // Assert
             Assert.Equal(2, res1);
@@ -228,7 +228,7 @@ namespace SportsStore.Tests
             }.AsQueryable());
 
             // Arrange - create the controller
-            ProductController target = new ProductController(mock.Object);
+            HomeController target = new HomeController(mock.Object);
 
             // Act - call the GetImage action method
             ActionResult result = target.GetImage(2);
@@ -251,7 +251,7 @@ namespace SportsStore.Tests
             }.AsQueryable());
 
             // Arrange - create the controller
-            ProductController target = new ProductController(mock.Object);
+            HomeController target = new HomeController(mock.Object);
 
             // Act - call the GetImage action method
             ActionResult result = target.GetImage(100);
