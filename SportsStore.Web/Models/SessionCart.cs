@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using SportsStore.Web.Infratructure;
+using SportsStore.Web.Infrastructure;
 using SportsStore.Web.Models.Domain;
 using System;
 using System.Text.Json.Serialization;

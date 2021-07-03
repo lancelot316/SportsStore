@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using SportsStore.Web.Models.ViewModels;
-using SportsStore.Web.Infratructure;
+using SportsStore.Web.Infrastructure;
 
 namespace SportsStore.Web.Controllers
 {

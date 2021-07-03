@@ -16,18 +16,18 @@ namespace SportsStore.Web.Controllers
         }
 
 
-        public ViewResult Index(string category, int page = 1)
+        public ViewResult Index(string category, int productPage = 1)
         {
             ProductsIndexViewModel model = new ProductsIndexViewModel
             {
                 Products = _repo.Products
                 .Where(p => category == null || p.Category == category)
                 .OrderBy(p => p.ProductID)
-                .Skip((page - 1) * PageSize)
+                .Skip((productPage - 1) * PageSize)
                 .Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
-                    CurrentPage = page,
+                    CurrentPage = productPage,
                     ItemsPerPage = PageSize,
                     TotalItems = category == null ?
                         _repo.Products.Count() :
