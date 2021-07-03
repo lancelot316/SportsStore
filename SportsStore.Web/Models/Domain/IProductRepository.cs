@@ -6,7 +6,7 @@ namespace SportsStore.Web.Models.Domain
     {
         IQueryable<Product> Products { get; }
 
-        //void DeleteProduct(Product product);
+        void DeleteProduct(Product product);
         Product DeleteProduct(int productId);
         void SaveProduct(Product product);
     }

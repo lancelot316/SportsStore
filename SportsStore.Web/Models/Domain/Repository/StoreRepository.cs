@@ -42,9 +42,7 @@ namespace SportsStore.Web.Models.Domain.Repository
         public void DeleteProduct(Product product)
         {
             IEnumerable<Order> orders = context.Orders
-                .Include(o => o.Lines.Select(ol => ol.Product))
-                .Where(o => o.Lines.Count(ol => ol.Product
-                    .ProductID == product.ProductID) > 0).ToArray();
+                .Where(o => o.Lines.Count(ol => ol.Product.ProductID == product.ProductID) > 0);
 
             foreach (Order order in orders)
             {
