@@ -27,7 +27,7 @@ namespace SportsStore.Web.Pages
                 .FirstOrDefault(p => p.ProductID == productId);
 
             Cart.AddItem(product, 1);
-            HttpContext.Session.SetJson("cart", Cart);
+            
             return RedirectToPage(new { returnUrl = returnUrl });
         }
 
