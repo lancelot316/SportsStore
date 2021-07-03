@@ -6,9 +6,9 @@ namespace SportsStore.Web.Models.Domain
 {
     public class Order
     {
-        
+        [BindNever]
         public int OrderID { get; set; }
-        
+        [BindNever]
         public virtual List<OrderLine> Lines { get; set; } = new List<OrderLine>();
         [Required(ErrorMessage = "Please enter a name")]
         public string Name { get; set; }
