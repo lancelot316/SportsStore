@@ -12,7 +12,7 @@ namespace SportsStore.Web.Models.Domain.Repository
         {
             context = ctx;
         }
-        public IEnumerable<Product> Products
+        public IQueryable<Product> Products
         {
             get { return context.Products; }
         }
@@ -39,20 +39,20 @@ namespace SportsStore.Web.Models.Domain.Repository
             context.SaveChanges();
         }
 
-        //public void DeleteProduct(Product product)
-        //{
-        //    IEnumerable<Order> orders = context.Orders
-        //        .Include(o => o.OrderLines.Select(ol => ol.Product))
-        //        .Where(o => o.OrderLines.Count(ol => ol.Product
-        //            .ProductID == product.ProductID) > 0).ToArray();
+        public void DeleteProduct(Product product)
+        {
+            IEnumerable<Order> orders = context.Orders
+                .Include(o => o.Lines.Select(ol => ol.Product))
+                .Where(o => o.Lines.Count(ol => ol.Product
+                    .ProductID == product.ProductID) > 0).ToArray();
 
-        //    foreach (Order order in orders)
-        //    {
-        //        context.Orders.Remove(order);
-        //    }
-        //    context.Products.Remove(product);
-        //    context.SaveChanges();
-        //}
+            foreach (Order order in orders)
+            {
+                context.Orders.Remove(order);
+            }
+            context.Products.Remove(product);
+            context.SaveChanges();
+        }
 
         public Product DeleteProduct(int productID)
         {

@@ -21,7 +21,7 @@ namespace SportsStore.Tests
                 new Product {ProductID = 2, Name = "P2", Category = "Apples"},
                 new Product {ProductID = 3, Name = "P3", Category = "Plums"},
                 new Product {ProductID = 4, Name = "P4", Category = "Oranges"},
-            }).AsEnumerable<Product>());
+            }).AsQueryable());
 
             NavigationMenuViewComponent target =
                 new NavigationMenuViewComponent(mock.Object);
@@ -42,7 +42,7 @@ namespace SportsStore.Tests
             mock.Setup(m => m.Products).Returns((new Product[] {
                 new Product {ProductID = 1, Name = "P1", Category = "Apples"},
                 new Product {ProductID = 4, Name = "P2", Category = "Oranges"},
-            }).AsEnumerable<Product>());
+            }).AsQueryable());
 
             NavigationMenuViewComponent target =
                 new NavigationMenuViewComponent(mock.Object);

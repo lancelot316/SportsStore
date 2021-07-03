@@ -19,7 +19,7 @@ namespace SportsStore.Tests
                 new Product {ProductID = 1, Name = "P1"},
                 new Product {ProductID = 2, Name = "P2"},
                 new Product {ProductID = 3, Name = "P3"},
-            });
+            }.AsQueryable());
 
             // Arrange - create a controller
             AdminController target = new AdminController(mock.Object);
@@ -45,7 +45,7 @@ namespace SportsStore.Tests
                 new Product {ProductID = 1, Name = "P1"},
                 new Product {ProductID = 2, Name = "P2"},
                 new Product {ProductID = 3, Name = "P3"},
-            });
+            }.AsQueryable());
 
             // Arrange - create the controller
             AdminController target = new AdminController(mock.Object);
@@ -71,7 +71,7 @@ namespace SportsStore.Tests
                 new Product {ProductID = 1, Name = "P1"},
                 new Product {ProductID = 2, Name = "P2"},
                 new Product {ProductID = 3, Name = "P3"},
-            });
+            }.AsQueryable());
 
             // Arrange - create the controller
             AdminController target = new AdminController(mock.Object);
@@ -138,7 +138,7 @@ namespace SportsStore.Tests
                 new Product {ProductID = 1, Name = "P1"},
                 prod,
                 new Product {ProductID = 3, Name = "P3"},
-            });
+            }.AsQueryable());
 
             // Arrange - create the controller
             AdminController target = new AdminController(mock.Object);

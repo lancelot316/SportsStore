@@ -9,6 +9,7 @@
     [GiftWrap]   BIT            NOT NULL,
     [Zip] NVARCHAR(MAX) NULL, 
     [Country] NVARCHAR(MAX) NOT NULL, 
+    [Shipped] BIT NOT NULL, 
     PRIMARY KEY CLUSTERED ([OrderId] ASC)
 );
 

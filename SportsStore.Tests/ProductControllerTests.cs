@@ -20,7 +20,7 @@ namespace SportsStore.Tests
                 new Product {ProductID = 3, Name = "P3"},
                 new Product {ProductID = 4, Name = "P4"},
                 new Product {ProductID = 5, Name = "P5"}
-            });
+            }.AsQueryable());
             HomeController controller = new HomeController(mock.Object);
             controller.PageSize = 3;
 
@@ -46,7 +46,7 @@ namespace SportsStore.Tests
                 new Product {ProductID = 3, Name = "P3"},
                 new Product {ProductID = 4, Name = "P4"},
                 new Product {ProductID = 5, Name = "P5"}
-            });
+            }.AsQueryable());
 
             // Arrange
             HomeController controller = new HomeController(mock.Object);
@@ -75,7 +75,7 @@ namespace SportsStore.Tests
                 new Product {ProductID = 3, Name = "P3", Category = "Cat1"},
                 new Product {ProductID = 4, Name = "P4", Category = "Cat2"},
                 new Product {ProductID = 5, Name = "P5", Category = "Cat3"}
-            });
+            }.AsQueryable());
 
             // Arrange - create a controller and make the page size 3 items
             HomeController controller = new HomeController(mock.Object);
@@ -104,7 +104,7 @@ namespace SportsStore.Tests
                 new Product {ProductID = 3, Name = "P3", Category = "Cat1"},
                 new Product {ProductID = 4, Name = "P4", Category = "Cat2"},
                 new Product {ProductID = 5, Name = "P5", Category = "Cat3"}
-            });
+            }.AsQueryable());
 
             // Arrange - create a controller and make the page size 3 items
             HomeController target = new HomeController(mock.Object);
