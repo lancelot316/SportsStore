@@ -1,7 +1,6 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SportsStore.Web.Infrastructure;
 using SportsStore.Web.Models.Domain;
 
 namespace SportsStore.Web.Pages
