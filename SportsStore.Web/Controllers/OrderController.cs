@@ -36,14 +36,12 @@ namespace SportsStore.Web.Controllers
 
                 repository.SaveOrder(order);
                 cart.Clear();
-                return RedirectToAction("Completed", new { orderId = order.OrderID });
+                return RedirectToPage("/Completed", new { orderId = order.OrderID });
             }
             else
             {
                 return View();
             }
         }
-
-        public ViewResult Completed(int orderId) => View(orderId);
     }
 }

@@ -1,7 +1,7 @@
 ﻿@model SportsStore.Web.Models.Domain.Product
 
-<div class="card m-1">
-    <div class="card-body">
+<div class="card mt-3">
+    <div class="card-content">
         @if (Model.ImageData != null)
         {
             <div class="pull-left" style="margin-right: 10px">
@@ -11,20 +11,20 @@
             </div>
         }
 
-    <header class="d-flex justify-content-between align-items-center">
-        <h4 class="card-title">@Model.Name</h4>
+    <header class="is-flex is-justify-content-space-between is-align-items-center mb-3">
+        <h4>@Model.Name</h4>
 
-        <span class="badge bg-primary">
+        <span class="tag is-info">
            @Model.Price.ToString("c")
         </span>
     </header>
-    <div class="card-text d-flex justify-content-between align-items-center">
+    <div class="is-flex is-justify-content-space-between is-align-items-center">
         @Model.Description
         <form id="@Model.ProductID" asp-page="/Cart" method="post">
             <input type="hidden" asp-for="ProductID" />
             <input type="hidden" name="returnUrl"
                    value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-            <button type="submit" class="btn btn-sm btn-success">Add To Cart</button>
+            <button type="submit" class="button is-success">Add To Cart</button>
         </form>
 
     </div>

@@ -1,43 +1,66 @@
 ﻿@model Order
-<h2>Check out now</h2>
+<h2 class="title is-1">Check out now</h2>
 <p>Please enter your details, and we'll ship your goods right away!</p>
 
-<div asp-validation-summary="All" class="text-danger"></div>
+<div asp-validation-summary="All" class="p-3 has-text-danger-dark"></div>
 
 <form asp-action="Checkout" method="post">
-    <h3>Ship to</h3>
-    <div class="form-group">
-        <label>Name:</label><input asp-for="Name" class="form-control" />
+    <h3 class="title">Ship to</h3>
+    <div class="field">
+        <label>Name:</label>
+        <div class="control">
+            <input asp-for="Name" class="input" />
+        </div>
     </div>
     <h3>Address</h3>
-    <div class="form-group">
-        <label>Line 1:</label><input asp-for="Line1" class="form-control" />
+    <div class="field">
+        <label>Line 1:</label>
+        <div class="control">
+            <input asp-for="Line1" class="input" />
+        </div>
     </div>
-    <div class="form-group">
-        <label>Line 2:</label><input asp-for="Line2" class="form-control" />
+    <div class="field">
+        <label>Line 2:</label>
+        <div class="control">
+            <input asp-for="Line2" class="input" />
+        </div>
     </div>
-    <div class="form-group">
-        <label>Line 3:</label><input asp-for="Line3" class="form-control" />
+    <div class="field">
+        <label>Line 3:</label>
+        <div class="control">
+            <input asp-for="Line3" class="input" />
+        </div>
     </div>
-    <div class="form-group">
-        <label>City:</label><input asp-for="City" class="form-control" />
+    <div class="field">
+        <label>City:</label>
+        <div class="control">
+            <input asp-for="City" class="input" />
+        </div>
     </div>
-    <div class="form-group">
-        <label>State:</label><input asp-for="State" class="form-control" />
+    <div class="field">
+        <label>State:</label>
+        <div class="control">
+            <input asp-for="State" class="input" />
+        </div>
     </div>
-    <div class="form-group">
-        <label>Zip:</label><input asp-for="Zip" class="form-control" />
+    <div class="field">
+        <label>Zip:</label>
+        <div class="control">
+            <input asp-for="Zip" class="input" />
+        </div>
     </div>
-    <div class="form-group">
-        <label>Country:</label><input asp-for="Country" class="form-control" />
+    <div class="field">
+        <label>Country:</label>
+        <div class="control">
+            <input asp-for="Country" class="input" />
+        </div>
     </div>
-    <h3>Options</h3>
-    <div class="checkbox">
-        <label>
-            <input asp-for="GiftWrap" /> Gift wrap these items
-        </label>
-    </div>
-    <div class="text-center">
-        <input class="btn btn-primary" type="submit" value="Complete Order" />
+    <h3 class="title">Options</h3>
+
+    <label class="checkbox">
+        <input asp-for="GiftWrap" /> Gift wrap these items
+    </label>
+    <div class="has-text-centered">
+        <input class="button is-primary" type="submit" value="Complete Order" />
     </div>
 </form>

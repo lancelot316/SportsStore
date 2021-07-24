@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width" />
     <title>SportsStore</title>
 
-    <link rel="stylesheet" href="/lib/twitter-bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/bulma/css/bulma.min.css" />
     <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="/Content/styles.css" />
 </head>
 <body>
-    <div class="bg-dark text-white p-2">
-        <div class="d-flex justify-content-between">
-            <span class="navbar-brand" ml-2>SPORTS STORE</span>
+    <header class="has-background-primary has-text-white p-2">
+        <div class="is-flex is-justify-content-space-between">
+            <span>SPORTS STORE</span>
             <vc:cart-summary />    
         </div>
-    </div>
-    <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
+    </header>
+    <div class="columns m-1 p-1">
+        <div id="categories" class="column is-one-third">
             <vc:navigation-menu />
         </div>
-        <div class="col-9">
+        <div class=" column">
             @RenderBody()
         </div>
     </div>
