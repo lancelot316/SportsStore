@@ -1,14 +1,7 @@
-﻿
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Routing;
-using Moq;
+﻿using Moq;
 using SportsStore.Web.Models.Domain;
 using SportsStore.Web.Pages;
 using System.Linq;
-using System.Text;
-using System.Text.Json;
 using Xunit;
 
 namespace SportsStore.Tests

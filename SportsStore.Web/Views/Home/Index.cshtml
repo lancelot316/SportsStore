@@ -9,17 +9,17 @@
     <partial name="ProductSummary" model="product" />
 }
 
-<div class="d-flex justify-content-center">
+<nav class="pagination is-flex is-justify-content-center mt-3">
     <div page-model="@Model.PagingInfo"
          page-action="Index"
          page-classes-enabled="true"
-         page-class="btn"
-         page-class-normal="btn-outline-dark"
-         page-class-selected="btn-primary"
+         page-class="pagination-link"
+         page-class-normal=""
+         page-class-selected="is-current"
          page-url-category="@Model.CurrentCategory"
          class="btn-group">
     </div>
-</div>
+</nav>
 
 
 

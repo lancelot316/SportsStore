@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width" />
     <title>SportsStore</title>
 
-    <link rel="stylesheet" href="/lib/twitter-bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/lib/bulma/css/bulma.min.css" />
     <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="/Content/styles.css" />
 </head>
 <body>
-    <div class="bg-dark text-white p-2">
-        <div class="container-fluid">
-            <span class="navbar-brand" ml-2>SPORTS STORE</span>
-        </div>
-    </div>
-    <div class="m-1 p-1">
+    <header class="has-background-primary has-text-white p-2">
+        <span>SPORTS STORE</span>
+    </header>
+    <div class="container">
         @RenderBody()
     </div>
 </body>
