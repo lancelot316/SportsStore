@@ -1,26 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using SportsStore.Web.Models.Domain;
 
-namespace SportsStore.Web.Controllers
+namespace SportsStore.Web.Pages.Orders
 {
-    public class OrderController : Controller
+    public class CheckoutModel : PageModel
     {
-        private IOrderRepository repository;
-        private Cart cart;
-        public OrderController(IOrderRepository repoService, Cart cartService)
+        [BindProperty]
+        public Order Order { get; set; }
+        public CheckoutModel(IOrderRepository repository, Cart cart)
         {
-            repository = repoService;
-            cart = cartService;
+            this.repository = repository;
+            this.cart = cart;
         }
-        public ViewResult Checkout() => View(new Order());
-        
-        [HttpPost]
-        public IActionResult Checkout(Order order)
+
+        public void OnGet()
+        {
+            Order = new Order();
+        }
+
+        public IActionResult OnPost(Order order)
         {
             if (cart.Lines.Count == 0)
             {
                 ModelState.AddModelError("", "Sorry, your cart is empty!");
             }
+
             if (ModelState.IsValid)
             {
                 foreach (var line in cart.Lines)
@@ -36,12 +41,14 @@ namespace SportsStore.Web.Controllers
 
                 repository.SaveOrder(order);
                 cart.Clear();
-                return RedirectToPage("/Completed", new { orderId = order.OrderID });
+                
+                return RedirectToPage("/Orders/Completed", new { orderId = order.OrderID });
             }
-            else
-            {
-                return View();
-            }
+
+            return Page();
         }
+
+        private readonly IOrderRepository repository;
+        private readonly Cart cart;
     }
 }
